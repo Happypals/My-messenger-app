@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "48000739450",
+    "firebase_url": "https://my-messengerapp.firebaseio.com",
+    "project_id": "my-messengerapp",
+    "storage_bucket": "my-messengerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48000739450:android:c3625839b0e64532",
+        "android_client_info": {
+          "package_name": "edu.bucknell.xizhouli.whatsup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48000739450-jksupnerbure880s5ui361n1lij0e7bd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.bucknell.xizhouli.whatsup",
+            "certificate_hash": "A36D2DC0813793A9BFF2B98EC95BEA38D7F64F7B"
+          }
+        },
+        {
+          "client_id": "48000739450-ut13mfc8qhkphu5l44vh2ti6fv0vis34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkBDx6bN7iJhOoQUfyVHzYRP_NNfSRsps"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48000739450-ut13mfc8qhkphu5l44vh2ti6fv0vis34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
