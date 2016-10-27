@@ -2,6 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.bucknell.xizhouli.whatsup">
 
+    <permission
+        android:name="edu.bucknell.xizhouli.whatsup.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="edu.bucknell.xizhouli.whatsup.permission.GET_ACCOUNTS"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.appsrox.instachat.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <provider
+        android:name=".DataProvider"
+        android:authorities="edu.bucknell.xizhouli.whatsup.provider"
+        android:exported="false" >
+    </provider>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +44,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".client.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.appsrox.instachat" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

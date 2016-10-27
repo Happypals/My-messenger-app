@@ -15,6 +15,7 @@ import com.google.firebase.messaging.RemoteMessage;
  * Created by xizhouli on 10/26/16.
  */
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    Intent intent;
     private static final String TAG = "MyFirebaseMsgService" ;
 
     @Override
@@ -23,23 +24,27 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.d(TAG, "From: " + remoteMessage.getFrom());
         Log.d(TAG, "Notification message Body: " + remoteMessage.getNotification().getBody());
 
+
         //Calling method to generate notification
         sendNotification(remoteMessage.getNotification().getBody());
+
+        intent.putExtra("Xizhou Li",remoteMessage.getNotification().getBody());
     }
 
     // generate push notifications
     private void sendNotification(String messageBody) {
-        Intent intent = new Intent(this, MainActivity.class);
+        intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0, intent,PendingIntent.FLAG_ONE_SHOT);
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Firebase Push Notification")
+                .setContentTitle("You have a new message !")
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
+
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
